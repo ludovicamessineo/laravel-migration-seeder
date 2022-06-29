@@ -1,0 +1,9 @@
+Azienda - varchar (20)
+Stazione di partenza - varchar (50)
+Stazione di arrivo - varchar (50)
+Orario di partenza - date
+Orario di arrivo - date
+Codice Treno - varchar (10)
+Numero Carrozze - tinyint
+In orario - boolean
+Cancellato - boolean
