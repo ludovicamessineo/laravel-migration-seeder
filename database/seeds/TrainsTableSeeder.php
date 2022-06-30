@@ -18,17 +18,21 @@ class TrainsTableSeeder extends Seeder
             'Trenord'
         ];
 
+        Train::truncate();
+        
         for ($i = 0; $i < 15; $i ++) { 
             $train = new Train();
             $train->azienda = $azienda[rand(0, count($azienda) - 1)];
-            $train->stazione_partenza = $faker->city();
-            $train->stazione_arrivo = $faker->city();
-            $train->orario_partenza = $faker->time();
-            $train->orario_arrivo = $faker->time();
+            $train->stazione_partenza = $faker->state();
+            $train->stazione_arrivo = $faker->state();
+            $train->orario_partenza = $faker->date('Y-m-d');
+            $train->orario_arrivo = $faker->date('Y-m-d');
             $train->codice_treno = $faker->randomNumber(5, true);
             $train->numero_carrozze = $faker->randomDigit();
             $train->in_orario = $faker->boolean();
             $train->cancellato = $faker->boolean();
+
+            $train->save();
         }
     }
 }
